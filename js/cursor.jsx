@@ -1,7 +1,7 @@
 // Custom yarn-ball cursor. Follows mouse, scales on hover, rotates slowly like rolling yarn.
 const { useEffect, useRef, useState } = React;
 
-function CrochetCursor({ theme }) {
+function CrochetCursor() {
   const ref = useRef(null);
   const trailRef = useRef(null);
   const [hover, setHover] = useState(false);
@@ -43,11 +43,11 @@ function CrochetCursor({ theme }) {
     };
   }, []);
 
-  const isGotico = theme === 'gotico';
-  const ink = isGotico ? '#f7c8db' : '#7a1233';
-  const yarn = isGotico ? '#e91e63' : '#e89bb4';
-  const yarnDark = isGotico ? '#a8174a' : '#c46a8b';
-  const highlight = isGotico ? '#ffd9e8' : '#fde7ef';
+  // Cores da logo: novelo magenta com brilho osso.
+  const ink = '#000000';
+  const yarn = '#fe0190';
+  const yarnDark = '#9c0059';
+  const highlight = '#ff86c4';
 
   const size = 36;
   const half = size / 2;
@@ -56,7 +56,7 @@ function CrochetCursor({ theme }) {
     <>
       <div ref={trailRef} className="cursor-trail" style={{
         position: 'fixed', left: -14, top: -14, width: 28, height: 28, pointerEvents: 'none',
-        zIndex: 9998, mixBlendMode: isGotico ? 'screen' : 'multiply',
+        zIndex: 9998, mixBlendMode: 'screen',
         opacity: hover ? 0.55 : 0.22, transition: 'opacity .3s',
       }}>
         <div style={{
